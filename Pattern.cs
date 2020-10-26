@@ -7,17 +7,17 @@ namespace PincodePattern
 {
     public class Pattern
     {
-        //The regex pattern for lastname
-        public static string REGEX_LASTNAME = "^[A-Z]{1}[a-zA-Z]{2,}";
+        //The regex pattern for email
+        public static string REGEX_EMAIL = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
         /// <summary>
-        /// Validates the last name by taking lastname as argument.
+        /// Validates the email by taking email as argument.
         /// And returns true or false
         /// </summary>
-        /// <param name="lastName">The last name.</param>
+        /// <param name="email">The email.</param>
         /// <returns></returns>
-        public bool ValidateLastName(string lastName)
+        public bool ValidateEmail(string email)
         {
-            return Regex.IsMatch(lastName, REGEX_LASTNAME);
+            return Regex.IsMatch(email, REGEX_EMAIL);
         }
 
     }
