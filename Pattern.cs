@@ -7,20 +7,17 @@ namespace PincodePattern
 {
     public class Pattern
     {
-        //The regex pattern for password
-        public static string REGEX_PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=[\\w]*[\\W][\\w]*$)(?=.{8,}$).*$";
+        //The regex pattern for email
+        public static string REGEX_EMAIL = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
         /// <summary>
-        /// Validates the password such that with atleast one uppercase charecter
-        /// And atleast one numeric,exact one special charecter 
-        /// and length of minimum  8 charecters
-        /// By taking password as argument and Returns true or false
+        /// Validates the email by taking email as argument.
+        /// And returns true or false
         /// </summary>
-        /// <param name="password">The password.</param>
+        /// <param name="email">The email.</param>
         /// <returns></returns>
-        public bool ValidatePassword(string password)
+        public bool ValidateEmail(string email)
         {
-            return Regex.IsMatch(password, REGEX_PASSWORD);
+            return Regex.IsMatch(email, REGEX_EMAIL);
         }
-
     }
 }
