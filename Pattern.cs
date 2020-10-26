@@ -7,17 +7,17 @@ namespace PincodePattern
 {
     public class Pattern
     {
-        //The regex pattern for email
-        public static string REGEX_EMAIL = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
+        //The regex pattern for mobile number
+        public static string REGEX_MOBILE_NUMBER = "^[1-9]{1}[0-9]{1,2}[ ][1-9]{1}[0-9]{9}$";
         /// <summary>
-        /// Validates the email by taking email as argument.
+        /// Validates the mobile number by taking mobile number as argument.
         /// And returns true or false
         /// </summary>
-        /// <param name="email">The email.</param>
+        /// <param name="mobileNumber">The mobile Number.</param>
         /// <returns></returns>
-        public bool ValidateEmail(string email)
+        public bool ValidateMobileNumber(string mobileNumber)
         {
-            return Regex.IsMatch(email, REGEX_EMAIL);
+            return Regex.IsMatch(mobileNumber, REGEX_MOBILE_NUMBER);
         }
 
     }
