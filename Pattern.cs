@@ -7,17 +7,18 @@ namespace PincodePattern
 {
     public class Pattern
     {
-        //The regex pattern for mobile number
-        public static string REGEX_MOBILE_NUMBER = "^[1-9]{1}[0-9]{1,2}[ ][1-9]{1}[0-9]{9}$";
+        //The regex pattern for password
+        public static string REGEX_PASSWORD = ".{8,}";
         /// <summary>
-        /// Validates the mobile number by taking mobile number as argument.
+        /// Validates the password such that with minimum of 8 charecters
+        /// By taking password as argument.
         /// And returns true or false
         /// </summary>
-        /// <param name="mobileNumber">The mobile Number.</param>
+        /// <param name="password">The password.</param>
         /// <returns></returns>
-        public bool ValidateMobileNumber(string mobileNumber)
+        public bool ValidatePassword(string password)
         {
-            return Regex.IsMatch(mobileNumber, REGEX_MOBILE_NUMBER);
+            return Regex.IsMatch(password, REGEX_PASSWORD);
         }
 
     }

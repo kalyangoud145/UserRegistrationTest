@@ -11,12 +11,12 @@ namespace PincodePattern
         {
             //Pattern method object is created
             Pattern pattern = new Pattern();
-            //Gets user input and store in mobileNumber variable
-            Console.WriteLine("Enter the mobile number");
-            string mobileNumber = Console.ReadLine();
-            //Here it calls ValidateMobileNumber method for validating the email
-            //parameter for the method is mobileNumber
-            Console.WriteLine(pattern.ValidateMobileNumber(mobileNumber));
+            //Gets user input and store in password variable
+            Console.WriteLine("Enter the password");
+            string password = Console.ReadLine();
+            //Here it calls ValidatePassword method for validating the password
+            //parameter for the method is password
+            Console.WriteLine(pattern.ValidatePassword(password));
         }
     }
 }
