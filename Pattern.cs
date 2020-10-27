@@ -7,32 +7,20 @@ namespace PincodePattern
 {
     public class Pattern
     {
-        //The regex pattern for firstname
-        public static string REGEX_FIRSTNAME = "^[A-Z]{1}[a-zA-Z]{2,}";
+        ///The regex pattern for name
+        public const  string REGEX_NAME = "^[A-Z]{1}[a-zA-Z]{2,}";
         /// <summary>
-        /// Validates the first name by taking firstname as argument.
+        /// Validates the  name by taking name as argument.
         /// And returns true or false
         /// </summary>
-        /// <param name="firstName">The first name.</param>
+        /// <param name="Name">The name.</param>
         /// <returns></returns>
-        public bool ValidateFirstName(string firstName)
+        public bool ValidateName(string name)
         {
-            return Regex.IsMatch(firstName, REGEX_FIRSTNAME);
+            return Regex.IsMatch(name, REGEX_NAME);
         }
-        //The regex pattern for lastname
-        public static string REGEX_LASTNAME = "^[A-Z]{1}[a-zA-Z]{2,}";
-        /// <summary>
-        /// Validates the last name by taking lastname as argument.
-        /// And returns true or false
-        /// </summary>
-        /// <param name="lastName">The last name.</param>
-        /// <returns></returns>
-        public bool ValidateLastName(string lastName)
-        {
-            return Regex.IsMatch(lastName, REGEX_LASTNAME);
-        }
-        //The regex pattern for mobile number
-        public static string REGEX_MOBILE_NUMBER = "^[1-9]{1}[0-9]{1,2}[ ][1-9]{1}[0-9]{9}$";
+        ///The regex pattern for mobile number
+        public const string REGEX_MOBILE_NUMBER = "^[1-9]{1}[0-9]{1,2}[ ][1-9]{1}[0-9]{9}$";
         /// <summary>
         /// Validates the mobile number by taking mobile number as argument.
         /// And returns true or false
@@ -43,8 +31,8 @@ namespace PincodePattern
         {
             return Regex.IsMatch(mobileNumber, REGEX_MOBILE_NUMBER);
         }
-        //The regex pattern for password
-        public static string REGEX_PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=[\\w]*[\\W][\\w]*$)(?=.{8,}$).*$";
+        ///The regex pattern for password
+        public const string REGEX_PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=[\\w]*[\\W][\\w]*$)(?=.{8,}$).*$";
         /// <summary>
         /// Validates the password such that with atleast one uppercase charecter
         /// And atleast one numeric,exact one special charecter 
@@ -57,8 +45,8 @@ namespace PincodePattern
         {
             return Regex.IsMatch(password, REGEX_PASSWORD);
         }
-        //The regex pattern for email
-        public static string REGEX_EMAIL = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
+        ///The regex pattern for email
+        public const string REGEX_EMAIL = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
         /// <summary>
         /// Validates the email by taking email as argument.
         /// And returns true or false
@@ -68,6 +56,42 @@ namespace PincodePattern
         public bool ValidateEmail(string email)
         {
             return Regex.IsMatch(email, REGEX_EMAIL);
+        }
+        /// <summary>
+        /// Method Validates list of sample emails 
+        /// </summary>
+        public void ValidateSampleMails()
+        {
+            ///sampleEmaiList for storing the emails
+            List<string> sampleEmailList = new List<string>()
+            {
+                "abc@yahoo.com",
+                "abc-100@yahoo.com",
+                "abc.100@yahoo.com",
+                "abc111@abc.com",
+                "abc-100@abc.net",
+                "abc.100@abc.com.au",
+                "abc@1.com",
+                "abc@gmail.com.com",
+                "abc+100@gmail.com"
+            };
+            ///Here item is the  email in the sampleEmailList
+            ///foreach loop for getting each email at a time
+            foreach (string item in sampleEmailList)
+            {
+                ///Here it calls ValidateEmail method for validating the email
+                ///parameter for the method is email and prints "valid email" 
+                ///if email is valid
+                if (ValidateEmail(item))
+                {
+                    Console.WriteLine("Valid Email");
+                }
+                ///If email is invalid then it prints "invalid email"
+                else
+                {
+                    Console.WriteLine("Invalid Email");
+                }
+            }
         }
     }
 }
