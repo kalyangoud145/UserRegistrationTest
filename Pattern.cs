@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace PincodePattern
+namespace UserRegistration
 {
     public class Pattern
     {
         ///The regex pattern for name
-        public const  string REGEX_NAME = "^[A-Z]{1}[a-zA-Z]{2,}";
+        public const  string REGEX_NAME = "^[A-Z][a-zA-Z]{3,}";
         /// <summary>
         /// Validates the  name by taking name as argument.
         /// And returns true or false
