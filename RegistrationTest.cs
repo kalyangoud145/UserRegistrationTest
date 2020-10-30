@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using UserRegistration;
-
+using UserRegistrationProblem;
 
 namespace UserRegistrationMSTesting
 {
@@ -17,6 +17,7 @@ namespace UserRegistrationMSTesting
         /// <summary>
         /// Initializes a new instance of the <see cref="RegistrationTest"/> class.
         /// </summary>
+        /// Constructer
         public RegistrationTest()
         {
             pattern = new UserRegistration.Pattern();
@@ -184,8 +185,100 @@ namespace UserRegistrationMSTesting
             //Assert
             Assert.IsFalse(result);
         }
-
-
-
+        /// <summary>
+        /// Given user first name should return custom exception as invalid name format
+        /// </summary>
+        [TestMethod]
+        public void GivenUserFistName_WhenValidate_Should_Throw_CustomException_Indicating_Invalid_FirstName()
+        {
+            try
+            {
+                //Arrange
+                string firstName = "kalyan";
+                ///Act
+                bool result = pattern.ValidateName(firstName);
+            }
+            catch (RegistrationCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("invalid name format", e.Message);
+            }
+        }
+        /// <summary>
+        /// Given user last name should return custom exception as invalid name format
+        /// </summary>
+        [TestMethod]
+        public void GivenUserLastName_WhenValidate_Should_Throw_CustomException_Indicating_Invalid_LastName()
+        {
+            try
+            {
+                //Arrange
+                string lastName = "goud";
+                ///Act
+                bool result = pattern.ValidateName(lastName);
+            }
+            catch (RegistrationCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("invalid name format", e.Message);
+            }
+        }
+        /// <summary>
+        /// Given user email id should throw custom exception invalid email
+        /// </summary>
+        [TestMethod]
+        public void GivenUserEmailID_WhenValidate_Should_Throw_CustomException_Indicating_Invalid_EMALID()
+        {
+            try
+            {
+                //Arrange
+                string emailId = "abc111@.com.com";
+                ///Act
+                bool result = pattern.ValidateEmail(emailId);
+            }
+            catch (RegistrationCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("invalid email", e.Message);
+            }
+        }
+        /// <summary>
+        /// given user mobile numbet should throw exception as invalid mobile number
+        /// </summary>
+        [TestMethod]
+        public void GivenUserMobileNumber_WhenValidate_Should_Throw_CustomException_Indicating_Invalid_MOBILENUMBER()
+        {
+            try
+            {
+                //Arrange
+                string mobileNumber = "09 7732063720";
+                ///Act
+                bool result = pattern.ValidateMobileNumber(mobileNumber);
+            }
+            catch (RegistrationCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("invalid mobile number", e.Message);
+            }
+        }
+        /// <summary>
+        /// Given user password should throw custom exception as invalid password
+        /// </summary>
+        [TestMethod]
+        public void GivenUserPassword_WhenValidate_Should_Throw_CustomException_Indicating_Invalid_PASSWORD()
+        {
+            try
+            {
+                //Arrange
+                string password = "9542316708sw";
+                ///Act
+                bool result = pattern.ValidatePassword(password);
+            }
+            catch (RegistrationCustomException e)
+            {
+                //Assert
+                Assert.AreEqual("invalid password", e.Message);
+            }
+        }
     }
 }

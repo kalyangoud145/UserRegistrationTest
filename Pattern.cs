@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using UserRegistrationProblem;
 
 namespace UserRegistration
 {
@@ -17,7 +18,21 @@ namespace UserRegistration
         /// <returns></returns>
         public bool ValidateName(string name)
         {
-            return Regex.IsMatch(name, REGEX_NAME);
+            try
+            {
+                if (Regex.IsMatch(name, REGEX_NAME))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                throw new RegistrationCustomException(RegistrationCustomException.ExceptionType.INVALID_FIRST_NAME, "invalid name format");
+            }
         }
         ///The regex pattern for mobile number
         public const string REGEX_MOBILE_NUMBER = "^[1-9]{1}[0-9]{1,2}[ ][1-9]{1}[0-9]{9}$";
@@ -29,7 +44,22 @@ namespace UserRegistration
         /// <returns></returns>
         public bool ValidateMobileNumber(string mobileNumber)
         {
-            return Regex.IsMatch(mobileNumber, REGEX_MOBILE_NUMBER);
+            try
+            {
+                if (Regex.IsMatch(mobileNumber, REGEX_MOBILE_NUMBER))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                    throw new RegistrationCustomException(RegistrationCustomException.ExceptionType.INVALID_MOBILENO, "invalid mobile number");
+            }
+            
         }
         ///The regex pattern for password
         public const string REGEX_PASSWORD = "^(?=.*[A-Z])(?=.*[0-9])(?=[\\w]*[\\W][\\w]*$)(?=.{8,}$).*$";
@@ -43,7 +73,23 @@ namespace UserRegistration
         /// <returns></returns>
         public bool ValidatePassword(string password)
         {
-            return Regex.IsMatch(password, REGEX_PASSWORD);
+            try
+            {
+                if (Regex.IsMatch(password, REGEX_PASSWORD))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                throw new RegistrationCustomException(RegistrationCustomException.ExceptionType.INVALID_PASSWORD, "invalid password");
+
+            }
+
         }
         ///The regex pattern for email
         public const string REGEX_EMAIL = "^[0-9a-zA-Z]{1,}([._+-][0-9a-zA-Z]{0,})*[@][0-9a-zA-Z]{1,}.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
@@ -55,7 +101,21 @@ namespace UserRegistration
         /// <returns></returns>
         public bool ValidateEmail(string email)
         {
-            return Regex.IsMatch(email, REGEX_EMAIL);
+            try
+            {
+                if (Regex.IsMatch(email, REGEX_EMAIL))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                throw new RegistrationCustomException(RegistrationCustomException.ExceptionType.INVALID_EMAIL, "invalid email");
+            }
         }
         /// <summary>
         /// Method Validates list of sample emails 
