@@ -1,13 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using UserRegistration;
+using System.Collections.Generic;
 
-namespace UserRegistrationProblem
+namespace PincodePattern
 {
     /// <summary>
     /// Main Class for calling the respective methods
     /// </summary>
-    public class Program
+    class Program
     {
         static void Main(string[] args)
         {
@@ -16,7 +16,7 @@ namespace UserRegistrationProblem
             ///Gets user input and store in firstname variable
             Console.WriteLine("Enter First Name");
             string firstName = Console.ReadLine();
-            ///Here it calls ValidateName method for validating the firstname
+            ///Here it calls ValidateFirstName method for validating the firstname
             ///parameter for the method is firstName
             Console.WriteLine(pattern.ValidateName(firstName));
             ///Gets user input and store in lastname variable
