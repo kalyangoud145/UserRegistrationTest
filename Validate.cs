@@ -1,15 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using UserRegistrationProblem;
+using System.Threading.Tasks.Dataflow;
 
-namespace UserRegistration
+namespace UserRegistrationProblem
 {
-    public class Pattern
+    class Validate
     {
-        ///The regex pattern for name
+        public string name, mobileNumber, email, password;
+
+        public Validate()
+        {
+        }
+        public Validate(string message, string mobileNumber, string email, string password)
+        {
+            this.name = message;
+            this.mobileNumber = mobileNumber;
+            this.password = password;
+            this.email = email;
+        }
         public const string REGEX_NAME = "^[A-Z][a-zA-Z]{3,}";
         /// <summary>
         /// Validates the  name by taking name as argument.
@@ -17,11 +27,11 @@ namespace UserRegistration
         /// </summary>
         /// <param name="Name">The name.</param>
         /// <returns></returns>
-        public bool ValidateName(string name)
+        public bool ValidateName()
         {
             try
             {
-                if (Regex.IsMatch(name, REGEX_NAME))
+                if (Regex.IsMatch(this.name, REGEX_NAME))
                 {
                     return true;
                 }
@@ -43,11 +53,11 @@ namespace UserRegistration
         /// </summary>
         /// <param name="mobileNumber">The mobile Number.</param>
         /// <returns></returns>
-        public bool ValidateMobileNumber(string mobileNumber)
+        public bool ValidateMobileNumber()
         {
             try
             {
-                if (Regex.IsMatch(mobileNumber, REGEX_MOBILE_NUMBER))
+                if (Regex.IsMatch(this.mobileNumber, REGEX_MOBILE_NUMBER))
                 {
                     return true;
                 }
@@ -72,11 +82,11 @@ namespace UserRegistration
         /// </summary>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        public bool ValidatePassword(string password)
+        public bool ValidatePassword()
         {
             try
             {
-                if (Regex.IsMatch(password, REGEX_PASSWORD))
+                if (Regex.IsMatch(this.password, REGEX_PASSWORD))
                 {
                     return true;
                 }
@@ -100,11 +110,11 @@ namespace UserRegistration
         /// </summary>
         /// <param name="email">The email.</param>
         /// <returns></returns>
-        public bool ValidateEmail(string email)
+        public bool ValidateEmail()
         {
             try
             {
-                if (Regex.IsMatch(email, REGEX_EMAIL))
+                if (Regex.IsMatch(this.email, REGEX_EMAIL))
                 {
                     return true;
                 }
@@ -118,41 +128,6 @@ namespace UserRegistration
                 throw new RegistrationCustomException(RegistrationCustomException.ExceptionType.INVALID_EMAIL, "invalid email");
             }
         }
-        /// <summary>
-        /// Method Validates list of sample emails 
-        /// </summary>
-        public void ValidateSampleMails()
-        {
-            ///sampleEmaiList for storing the emails
-            List<string> sampleEmailList = new List<string>()
-            {
-                "abc@yahoo.com",
-                "abc-100@yahoo.com",
-                "abc.100@yahoo.com",
-                "abc111@abc.com",
-                "abc-100@abc.net",
-                "abc.100@abc.com.au",
-                "abc@1.com",
-                "abc@gmail.com.com",
-                "abc+100@gmail.com"
-            };
-            ///Here item is the  email in the sampleEmailList
-            ///foreach loop for getting each email at a time
-            foreach (string item in sampleEmailList)
-            {
-                ///Here it calls ValidateEmail method for validating the email
-                ///parameter for the method is email and prints "valid email" 
-                ///if email is valid
-                if (ValidateEmail(item))
-                {
-                    Console.WriteLine("Valid Email");
-                }
-                ///If email is invalid then it prints "invalid email"
-                else
-                {
-                    Console.WriteLine("Invalid Email");
-                }
-            }
-        }
     }
-}
+    }
+
