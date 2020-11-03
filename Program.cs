@@ -1,6 +1,7 @@
 ﻿using System;
 using UserRegistration;
 using System.Collections.Generic;
+using UserRegistrationProblem;
 
 namespace PincodePattern
 {
@@ -12,7 +13,8 @@ namespace PincodePattern
         static void Main(string[] args)
         {
             ///Pattern method object is created
-            Pattern pattern = new Pattern();
+            //Pattern pattern = new Pattern();
+            ValidateUsingLambda pattern = new ValidateUsingLambda();
             ///Gets user input and store in firstname variable
             Console.WriteLine("Enter First Name");
             string firstName = Console.ReadLine();
@@ -38,7 +40,7 @@ namespace PincodePattern
             ///parameter for the method is password
             Console.WriteLine(pattern.ValidatePassword(password));
             ///Calling ValidateSampleMails() for checking list of mails are valid
-            pattern.ValidateSampleMails();
+            //pattern.ValidateSampleMails();
         }
     }
 }
